@@ -1,0 +1,62 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="lab01.css">
+		<script src="lab01.js"></script>
+		<title>Make My Trip</title>
+		<script>
+			
+			
+		</script>
+	</head>
+	<body onload="getInfo()">
+		<h2>Book Domestic & International Flight Tickets</h2>
+		<ul id="menu">
+			<li id="dom">Domestic</li>
+			<li id="int">International</li>
+		</ul>
+		<section id="forms">
+			<form >
+				<input id="one_way" type="radio" name="trips" onclick="oneway();">One Way
+				<input id="round" type="radio" name="trips" onclick="roundtrip();">Round Trip
+				<table cellpadding="2px" cellspacing="5px">
+					<tr>
+						<td>From</td>
+						<td></td>
+						<td>To</td>
+					</tr>
+					<tr>
+						<td><select  id="from_city"></select></td>
+						<td><input type="submit" id="swap" value=" " onclick="swapnames();" ></td>
+						<td><select  id="to_city"></select></td>
+					</tr>
+				</table>
+				<table id="schedule">
+					<tr>
+						<td id="Departure">Departure</td>
+						
+						<td id="Return">Return</td>
+					</tr>
+					<tr>
+						<td><input id="Departure" type="date" required placeholder="Select Date" ></td>
+						<td><input id="Returndate" type="date" required placeholder="Select Date" ></td>
+					</tr>
+				</table>
+				<table cellpadding="2px" cellspacing="5px">
+					<tr>
+						<td>Adult:(12+ yrs)</td>
+						<td>Child:(2-11 yrs)</td>
+						<td>Infant:(0-2 yrs)</td>
+						<td>Class:</td>
+					</tr>
+					<tr>
+						<td><input  type="button" value="-" onclick="decr();"><input  type="number" id="inc_adult" value="1"><input   onclick="incr();" type="button" value="+"></td>
+						<td><input  type="button" value="-"><input  type="number" value="1"><input  type="button" value="+"></td>
+						<td><input  type="button" value="-"><input  type="number" value="1"><input  type="button" value="+"></td>
+						<td><select><option>Business</option><option>Economy</option></select></td>
+					</tr>
+				</table>
+			</form>
+		</section>
+		
+	</body>
+</html>
