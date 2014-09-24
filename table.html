@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<script>
+			var arr=[];
+			function constructTable(){
+				var table ="<table border='1'>";
+				table+="<thead><tr><th>Id</th><th>Location</th></tr></thead>";
+				table+="<tbody>";
+				for(var key in arr)
+				{
+					table+="<tr>";
+					table+="<td>"+key+"</td>";
+					table+="<td>"+arr[key]+"</td>";
+					table+="</tr>"
+				}
+				table+="</tbody>";
+				table+="</table>";
+				document.getElementById("resultsection").innerHTML=table;
+
+			}
+			
+			function addrow(){
+				var id=document.getElementById("in").value;
+				var location= document.getElementById("location").value;
+				arr[id]=location;
+				constructTable();
+			}
+		</script>
+	</head>
+	<body>
+		<form>
+			ID<input id="in" type="text" ><br/>
+			Location: 
+			<select name="city" id="location">
+				<option value="select">---Select---</option>
+				<option >Chennai</option>
+				<option >Pune</option>
+				<option >Bangalore</option>
+			</select><br/>
+			<input id="add" type="button" value="Add" onclick="addrow()" >
+
+		</form>
+		<section id="resultsection">
+
+		</section>
+		
+	</body>
+</html>
