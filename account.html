@@ -1,0 +1,30 @@
+function account(abalance){
+	 var balance=abalance;
+	this.deposit=function(amount){
+		balance+=amount;
+	}
+	this.withdraw=function(amount){
+		balance-=amount;
+	}
+	this.getbalance=function(){
+		console.log("Balance"+balance);
+	}
+}
+var a=new account(1000);
+a.deposit(1000);
+a.withdraw(200);
+a.getbalance();
+
+
+function account(thebalance){
+	var balance=thebalance;
+	this.getbalance=function(){
+		console.log("Balance "+balance);
+	}
+	this.deposit=function(amount){
+		balance+=amount;
+	}
+	this.withdraw=function(amount){
+		balance+=amount;
+	}
+}
