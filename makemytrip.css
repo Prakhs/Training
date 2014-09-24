@@ -1,0 +1,42 @@
+li{
+	display: inline;
+	border-style: solid;
+    border-width: 0.5%;
+}
+#dom{
+	border-bottom-style: outset;
+}
+body{
+	background-color: #404040 ;
+	
+	color:white;
+	margin:1%;
+	margin-left: 3%;
+	padding-left: 1%;
+	
+
+}
+#schedule{
+	border-style: solid;
+}
+#Departure{
+	color: black;
+}
+#Return{
+	color:black;
+}
+#swap{
+	background-image: url("a.jpg");
+	background-size: 100% ;
+	border-radius: 80%;
+	background-repeat: no-repeat;
+}
+#forms{
+	background-color: blue;
+	border-style: solid;
+	margin-right: 30%;
+	margin-top: 10%;
+	margin-left: 20%;
+	
+
+}
