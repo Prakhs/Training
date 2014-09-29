@@ -1,0 +1,58 @@
+<html>
+	<head>
+		<style>
+			#bod {
+				margin : 20%;
+				width: 50%;
+				padding: 8%;
+				border-width: 0.2%;
+				border-style: inset;
+			}
+			#x:hover {
+				-webkit-transform: scale(1.5);
+				-webkit-transition: 2s;
+			}
+			#y:hover {
+				-webkit-transform: rotateY(180deg);
+				-webkit-transition: 2s;
+			}
+			#z:hover {
+				-webkit-transform: rotateZ(180deg);
+				-webkit-transition: 2s;
+			}
+			#x{
+				
+				width: 10%;
+				padding : 4%;
+				margin-top: 10%;
+				border-width: 1%;
+				border-style:inset;
+			}
+			#y{
+				width: 10%;
+				padding : 4%;
+				margin-top: -12%;
+				margin-left: 35%;
+				border-width: 1%;
+				border-style: inset;
+			}
+			#z{
+				width: 10%;
+				padding : 4%;
+				margin-top: -12%;
+				margin-left: 70%;
+				border-width: 1%;
+				border-style: inset;
+			}
+			
+			
+		</style>
+	</head>
+	<body id="bod">
+	
+		<section id="x">X</section>
+		<section id="y">Y</section>
+		<section id="z">Z</section>
+		
+	</body>
+</html>
