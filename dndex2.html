@@ -1,0 +1,127 @@
+<html>
+	<head>
+		<script type="text/javascript">
+			var Str="";
+			var numArr=[];
+			var i=0;
+			window.onload=loadSection;
+			
+			function loadSection(){
+				/*var header="<header id=\"num1\" draggable=\"true\">1</header>";
+					header+="<header id=\"num2\" draggable=\"true\">2</header>";
+					header+="<header id=\"num3\" draggable=\"true\">3</header>";
+					header+="<header id=\"num4\" draggable=\"true\">4</header>";
+					header+="<header id=\"num5\" draggable=\"true\">5</header>";
+					header+="<header id=\"num6\" draggable=\"true\">6</header>";
+					header+="<header id=\"num7\" draggable=\"true\">7</header>";
+					header+="<header id=\"num8\" draggable=\"true\">8</header>";
+					header+="<header id=\"num9\" draggable=\"true\">9</header>";
+				document.getElementById("headersection").innerHTML=header;*/
+				var no="";
+				var constStr="";
+
+				for(var k=1;k<10;k++){
+					no="num"+k;
+					constStr+="<header id=\""+no+"\" draggable=\"true\">"+k+"</header>";
+					document.getElementById("headersection").innerHTML=constStr;
+				}
+				init();
+			}
+
+			function dStart(e){
+				var text=e.srcElement.innerHTML;
+				e.dataTransfer.setData("info",text);
+			}
+
+			function dOver(e){
+				e.preventDefault();
+			}
+
+			function drop(e){
+				var text=e.dataTransfer.getData("info");
+				var num=parseInt(text);
+				numArr.push(num);
+				Str+=text+"<br/>";
+				document.getElementById("box").innerHTML=Str;
+				
+			}
+			function init(){
+
+				document.getElementById("num1").ondragstart = dStart;
+				document.getElementById("num2").ondragstart = dStart;
+				document.getElementById("num3").ondragstart = dStart;
+				document.getElementById("num4").ondragstart = dStart;
+				document.getElementById("num5").ondragstart = dStart;
+				document.getElementById("num6").ondragstart = dStart;
+				document.getElementById("num7").ondragstart = dStart;
+				document.getElementById("num8").ondragstart = dStart;
+				document.getElementById("num9").ondragstart = dStart;
+				document.getElementById("box").ondragover = dOver;
+				document.getElementById("box").ondrop = drop;
+			}
+
+			function sum(){
+				var numSum=0;
+				for(var j=0;j<numArr.length;j++)
+					{
+						numSum+=numArr[j];	
+						
+					}
+					document.getElementById("SUM").innerHTML="SUM: "+numSum;
+			}
+
+			function prod(){
+				var numProd=1;
+				for(var j=0;j<numArr.length;j++)
+					{
+						numProd*=numArr[j];	
+						
+					}
+					document.getElementById("PROD").innerHTML="Prod: "+numProd;	
+			}
+
+			function reset(){
+				document.getElementById("box").innerHTML="";
+				for(var j=0;j<numArr.length;j++)
+					numArr.pop();
+
+				Str="";
+
+				document.getElementById("SUM").innerHTML="";
+				document.getElementById("PROD").innerHTML="";
+			}
+		</script>
+		<style type="text/css">
+			#box{
+				border-width:1%;
+				border-color: black;
+				border-radius:2%;
+				border-style: inset;
+				width:40%;
+				height:40%;
+				float:right;
+			}
+
+			#buttons{
+				margin-top:10%; 
+				float:right;
+			}
+		</style>
+	</head>
+	<body onload="loadSection();">
+		<section id="box">
+
+		</section>
+		<section id="headersection">
+			
+		</section>	
+		<section id="buttons">
+			<input type="button" value="Sum" onclick="sum();"><br/>
+			<input type="button" value="Product" onclick="prod();"><br/>
+			<input type="button" value="Reset" onclick="reset();"><br/>
+			<h5 id="SUM"></h5>
+			<h5 id="PROD"></h5>
+		</section>
+
+	</body>
+</html>
