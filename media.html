@@ -1,0 +1,120 @@
+<html>
+<head>
+	<title>Lab01</title>
+	<style type="text/css">
+		#audio1,#audio2,#audio3{
+			margin-top: 1%;
+			margin-left:20%;
+			display:none;
+		}
+	</style>
+	<script src="jquery-2.1.1.min.js"></script>
+	<script type="text/javascript">
+		$().ready(function(){
+			var song="";
+			document.getElementById("aud1").src="Kalimba.mp3";
+			document.getElementById("aud2").src="MaidwiththeFlaxenHair.mp3";
+			document.getElementById("aud3").src="SleepAway.mp3";
+			$("#song1").on("click",songOne);
+			$("#song2").on("click",songTwo);
+			$("#song3").on("click",songThree);
+			$("#playone").on("click",playOne);
+			$("#pauseone").on("click",pauseOne);
+			$("#playtwo").on("click",playTwo);
+			$("#pausetwo").on("click",pauseTwo);
+			$("#playthree").on("click",playThree);
+			$("#pausethree").on("click",pauseThree);
+			if(sessionStorage.getItem("currSong")!=null)
+				{
+					var song=sessionStorage.getItem("currSong");
+					console.log(song);
+					if(song=="one"){
+						var time=parseInt(sessionStorage.getItem("currTime"));
+						document.getElementById("audio1").style.display="block";
+						document.getElementById("aud1").onloadeddata=function(){
+						console.log(time);
+						document.getElementById("aud1").currentTime=parseInt(sessionStorage.getItem("currTime"));
+						};
+					}
+					if(song=="two"){
+						document.getElementById("audio2").style.display="block";
+						document.getElementById("aud2").onloadeddata=function(){
+						document.getElementById("aud2").currentTime=parseInt(sessionStorage.getItem("currTime"));
+						};
+					}
+					if(song=="three"){
+						document.getElementById("audio3").style.display="block";
+						document.getElementById("aud3").onloadeddata=function(){
+						document.getElementById("aud3").currentTime=parseInt(sessionStorage.getItem("currTime"));
+						};
+					
+					}	
+				}	
+
+		});
+		
+		function playOne(){
+			sessionStorage.setItem("currSong","one"); 
+			document.getElementById("aud1").play();
+		}
+
+		function pauseOne(){
+			document.getElementById("aud1").pause();
+			var time=document.getElementById("aud1").currentTime;
+			sessionStorage.setItem("currTime",time);
+		}
+
+		function playTwo(){
+			sessionStorage.setItem("currSong","two"); 
+			document.getElementById("aud2").play();
+		}
+
+		function pauseTwo(){
+			document.getElementById("aud2").pause();
+			var time=document.getElementById("aud1").currentTime;
+			sessionStorage.setItem("currTime",time);
+		}
+
+		function playThree(){
+			sessionStorage.setItem("currSong","three"); 
+			document.getElementById("aud3").play();
+		}
+
+		function pauseThree(){
+			document.getElementById("aud3").pause();
+			var time=document.getElementById("aud1").currentTime;
+			sessionStorage.setItem("currTime",time);
+		}
+
+		function songOne(){
+			
+			document.getElementById("audio1").style.display="block";
+			document.getElementById("audio2").style.display="none";
+			document.getElementById("audio3").style.display="none";
+		}
+
+		function songTwo(){
+			
+			document.getElementById("audio1").style.display="none";
+			document.getElementById("audio2").style.display="block";
+			document.getElementById("audio3").style.display="none";
+		}
+
+		function songThree(){
+			
+			document.getElementById("audio1").style.display="none";
+			document.getElementById("audio2").style.display="none";
+			document.getElementById("audio3").style.display="block";
+			
+		}
+	</script>
+</head>
+<body>
+	
+	<ol type="1">
+		<li><a href="#" id="song1">Kalimba</a><aside id="audio1"><audio controls id="aud1"></audio><br/><input type="button" value="Play" id="playone"><input type="button" value="Pause" id="pauseone"></aside></li><br/>
+		<li><a href="#" id="song2">Maid with the Flaxen Hair</a><aside id="audio2"><audio controls id="aud2"></audio><br/><input type="button" value="Play" id="playtwo"><input type="button" value="Pause" id="pausetwo"></aside></li><br/>
+		<li><a href="#" id="song3">Sleep Away</a><aside id="audio3"><audio controls id="aud3"></audio><br/><input type="button" value="Play" id="playthree"><input type="button" value="Pause" id="pausethree"></aside></li><br/>
+	</ol>	
+</body>
+</html>
