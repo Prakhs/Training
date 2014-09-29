@@ -1,0 +1,70 @@
+<html>
+	<head>
+		<style>
+			section#box{
+				float:right;
+				border-width: 1%;
+				border-radius: 2%;
+				border-color: black;
+				border-style: inset;
+				width: 40%;
+				height:40%;
+				}
+				section#buttons{float:right;
+					margin-right: 35%;
+
+				}
+		</style>
+		<script>
+			window.onload = init;
+			var text=[];
+			function startedDragging(e){
+				text=e.srcElement.innerHTML;
+				e.dataTransfer.setData("info",text);
+			}
+			function startedDraggingOver(e){
+				e.preventDefault();
+			}
+			function droppedInTheBox(e){
+				var text=e.dataTransfer.getData("info");
+				document.getElementById("box").innerHTML=text;
+					
+			}
+			function init(){
+				document.getElementById("num1").ondragstart=startedDragging;
+				document.getElementById("num2").ondragstart=startedDragging;
+				document.getElementById("num3").ondragstart=startedDragging;
+				document.getElementById("num4").ondragstart=startedDragging;
+				document.getElementById("num5").ondragstart=startedDragging;
+				document.getElementById("num6").ondragstart=startedDragging;
+				document.getElementById("num7").ondragstart=startedDragging;
+				document.getElementById("num8").ondragstart=startedDragging;
+				document.getElementById("num9").ondragstart=startedDragging;
+				document.getElementById("box").ondragover=startedDraggingOver;
+				document.getElementById("box").ondrop=droppedInTheBox;
+			}
+		</script>
+	</head>
+	<body>
+		<section id="box">
+			
+		</section>
+		
+		<header id="num1" draggable="true">1</header><br/><br/>
+		<header id="num2" draggable="true">2</header><br/><br/>
+		<header id="num3" draggable="true">3</header><br/><br/>
+		<header id="num4" draggable="true">4</header><br/><br/>
+		<header id="num5" draggable="true">5</header><br/><br/>
+		<header id="num6" draggable="true">6</header><br/><br/>
+		<header id="num7" draggable="true">7</header><br/><br/>
+		<header id="num8" draggable="true">8</header><br/><br/>
+		<header id="num9" draggable="true">9</header><br/><br/>
+		<section id="buttons">
+			<input type="button" value="SUM" onclick="add()"></br>
+			<input type="button" value="PRODUCT" onclick="multi()"></br>
+			<input type="button" value="RESET" onclick="rset()"></br>
+			<h2 id="sum"></h2></br>
+			<h2 is="product"></h2>
+		</section>
+	</body>
+</html>
