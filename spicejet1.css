@@ -1,0 +1,42 @@
+#main_header{
+	
+	background-color: red;
+	float: right;
+
+}
+#main_content{
+				border-width: 1%;
+				border-style: inset;
+				width:40%;
+				height:70%;
+				margin:5%; 
+
+}
+ul{
+	display: inline;
+}
+ul li{
+	display: inline-block;
+}
+#pnr{
+	width:70%;
+
+}
+#menu{
+	display: inline-block;
+}
+#pp{
+	text-align: center;
+}
+#ret{
+	background-color: red;
+}
+#it{
+	background-color: red;
+	float: right;
+}
+#sec{
+	background-image:url("HotmealNew_banner.jpg"); 
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
