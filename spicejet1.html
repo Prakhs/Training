@@ -1,0 +1,254 @@
+<html>
+	<head>
+		<script src="jquery-2.1.1.min.js"></script>
+		<script src="jquery-ui.min.js"></script>
+		<script src="spice.js"></script>
+		<link rel="stylesheet" type="text/css" href="jquery-ui.min.css">
+		<link rel="stylesheet" type="text/css" href="jquery-ui.theme.min.css">
+		<link rel="stylesheet" type="text/css" href="spice.css">
+		<!--<script>
+			$().ready(init);
+			function init(){
+				$( "#f" ).show();
+				$( "#fh" ).hide();
+				$( "#mb" ).hide();
+				$( "#wc" ).hide();
+				
+			}
+			function showd(){
+				$( "#dialog" ).show();
+				$( "#dialog" ).dialog();
+			}
+		</script>
+	-->
+	<script>
+ 		$(function() {
+    		$( "#main_content" ).tabs();
+  		});
+  	</script>
+  	<script>
+ 		$(function() {
+    		$( "#main_header" ).tabs();
+  		});
+  	</script>
+  	<script>
+ 		$(function() {
+    		$( "#menu" ).menu();
+  		});
+  	</script>
+  	<script>
+ 		$(function() {
+    		$( "#menu2" ).menu();
+  		});
+  	</script>
+  	<script>
+ 		$(function() {
+    		$( "#menu3" ).menu();
+  		});
+  	</script>
+	</head>
+	<body>
+		<section id="sec">
+		<div id="main_header">
+			<ul>
+				<li><a href="#tabs1">About Us</a></li>
+				<li><a href="#tabs2">Contact Us</a></li>
+				<li><a href="#tabs3">Investors</a></li>
+				<li><a href="#tabs4">SpiceAdd-ons</a></li>
+				<li><a href="#tabs5">Travel-Info</a></li>
+				<li><a href="#tabs6">Spice Offers</a></li>
+				<li><a href="#tabs7">Log In</a></li>
+
+			</ul>
+		
+		<div id="tabs1">
+			<ul id="menu">
+						<li>Careers</li><br/>
+						<li>Cargo</li><br/>
+						<li>Chater Request</li><br/>
+						<li>Corporate Overview</li><br/>
+						<li>Fleet</li><br/>
+						<li>Spice route magazine</li><br/>
+			</ul>
+		</div>
+		<div id="tabs2">
+			<ul id="menu2">
+						<li>Careers</li><br/>
+						<li>Cargo</li><br/>
+						<li>Chater Request</li><br/>
+						<li>Corporate Overview</li><br/>
+						<li>Fleet</li><br/>
+						<li>Spice route magazine</li><br/>
+			</ul>
+		</div>
+		<div id="tabs3">
+			<ul id="menu3">
+						<li>Careers</li><br/>
+						<li>Cargo</li><br/>
+						<li>Chater Request</li><br/>
+						<li>Corporate Overview</li><br/>
+						<li>Fleet</li><br/>
+						<li>Spice route magazine</li><br/>
+			</ul>
+		</div>
+		</div>
+		<div id="main_content">
+			<ul>
+				<li ><a href="#tab1">Flight</a></li>
+				<li ><a href="#tab2">Flight+Hotel</a></li>
+				<li ><a href="#tab3">Manage My Booking</a></li>
+				<li ><a href="#tab4">Web Check-In</a></li>
+			</ul>
+		
+		<div id="tab1">
+			<header id="main">Booking open till 25th october</header>
+		<article>
+			<section id="travelradiobuttons">
+				<input type="radio" name="travel" checked id="onewayrbtn">
+				<label>ONE WAY</label>
+				<input type="radio" name="travel" id="roundtriprbtn">
+				<label>ROUND TRIP</label>
+			</section>
+			<section id="fromtoboxes">
+				<input type="text" id="departure" placeholder="Leaving From....">	
+				<input type="text" id="destination" placeholder="Going To....">
+			</section>
+			<section id="dateboxes">
+				
+						<input type="date" id="fromdate">
+						<input type="date" disabled id="returndate">
+			</section>
+			<section id="passengersbuttons">
+					<table cellspacing="5">
+						<tr>
+							<td>ADULT: (12+ YRS)</td>
+							<td>CHILD: (2-11 YRS)</td>
+							<td>INFANT: (0-2 YRS)</td>
+							
+						</tr>
+						<tr>
+							<td>
+								<input type="button" value="-" id="adultminusbtn">
+								<input type="textbox" value="1" id="adulttextbox">
+								<input type="button" value="+" id="adultplusbtn">
+							</td>
+							<td>
+								<input type="button" value="-" id="childminusbtn">
+								<input type="textbox" value="0" id="childtextbox">
+								<input type="button" value="+" id="childplusbtn">
+							</td>
+							<td>
+								<input type="button" value="-" id="infantminusbtn">
+								<input type="textbox" value="0" id="infanttextbox">
+								<input type="button" value="+" id="infantplusbtn">
+							</td>
+								
+						</tr>	
+					</table>	
+				</section>
+			</section>	
+		</article>
+		</div>
+		<div id="tab2">
+			<p>Offers</p>
+			<article>
+			<section id="travelradiobuttons">
+				<input type="radio" name="travel" checked id="onewayrbtn">
+				<label>Flight+Hotel</label>
+				<input type="radio" name="travel" id="roundtriprbtn">
+				<label>Holiday Packages</label>
+			</section>
+			<section id="fromtoboxes">
+				<input type="text" id="departure" placeholder="Leaving From....">	
+				<input type="text" id="destination" placeholder="Going To....">
+			</section>
+			<section id="dateboxes">
+				
+					
+						<input type="date" id="fromdate">
+						<input type="date" disabled id="returndate">
+					
+			</section>
+			<section id="passengersbuttons">
+					<table cellspacing="5">
+						<tr>
+							<td>ADULT: (12+ YRS)</td>
+							<td>CHILD: (2-11 YRS)</td>
+							<td>INFANT: (0-2 YRS)</td>
+							
+						</tr>
+						<tr>
+							<td>
+								<input type="button" value="-" id="adultminusbtn">
+								<input type="textbox" value="1" id="adulttextbox">
+								<input type="button" value="+" id="adultplusbtn">
+							</td>
+							<td>
+								<input type="button" value="-" id="childminusbtn">
+								<input type="textbox" value="0" id="childtextbox">
+								<input type="button" value="+" id="childplusbtn">
+							</td>
+							<td>
+								<input type="button" value="-" id="infantminusbtn">
+								<input type="textbox" value="0" id="infanttextbox">
+								<input type="button" value="+" id="infantplusbtn">
+							</td>
+								
+						</tr>	
+					</table>	
+				</section>
+			</section>	
+		</article>
+		</div>
+		<div id="tab3">
+			<p>Please provide information for all fields for any of the options below</p>
+			<input type="text" id="pnr" placeholder="Confrimation Number(PNR)" ><hr>
+			<p>Option 1:</p>
+			<input type="email" required placeholder="Email">
+			<p id="pp" >----------or---------</p>
+			<table>
+					<tr>
+						<td>Option 2:</td>
+						<td></td>
+					</tr>	
+					<tr>
+						<td><input type="text" placeholder="First Name"></td>
+						<td><input type="text" placeholder="Last Name"></td>
+					</tr>	
+					<tr>
+						<td><input type="text" placeholder="Origin City"></td>
+						<td><input type="text" placeholder="Destination City"></td>
+					</tr>				
+			</table>
+			<p>Enter your Confirmation Number (PNR) and click the Email Itinerary button to receive your itinerary.</p>
+			<input id="ret" type="button" value="Retrieve Booking">
+			<input id="it" type="button" value="Email Itinerary">
+		</div>
+		<div id="tab4">
+			<p>For security purposes, please provide the information for all fields within one of the sections below.</p>
+			<input type="text" id="pnr" placeholder="Confrimation Number(PNR)" ><hr>
+			<p>Option 1:</p>
+			<input type="email" required placeholder="Email">
+			<p id="pp" >----------or---------</p>
+			<table>
+					<tr>
+						<td>Option 2:</td>
+						<td></td>
+					</tr>	
+					<tr>
+						<td><input type="text" placeholder="First Name"></td>
+						<td><input type="text" placeholder="Last Name"></td>
+					</tr>	
+					<tr>
+						<td><input type="text" placeholder="Origin City"></td>
+						<td><input type="text" placeholder="Destination City"></td>
+					</tr>				
+			</table>
+			
+			<input id="ret" type="button" value="Retrieve Booking">
+			<input id="it" type="button" value="Email Itinerary">
+		</div>
+		</div>
+		</section> 
+	</body>
+</html>
