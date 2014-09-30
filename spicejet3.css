@@ -1,0 +1,49 @@
+#sec1{
+	background-color:red;
+	width:72%;
+	height:30%;
+	border-radius: 0.2%;
+	border-width: 0.5%;
+	border-style: inset;
+	float: right;
+}
+#main{
+	background: url("HotmealNew_banner.jpg");
+	width:72%;
+	height:70%;
+	border-radius: 0.2%;
+	border-width: 0.5%;
+	border-style: inset;
+	margin-left: 27.5%;
+		float: left;
+
+}
+#sec2{
+	color:red;
+	width:50%;
+	height:70%;
+	border-radius: 0.2%;
+	border-width: 0.5%;
+	border-style: inset;
+	float: left;
+	
+	
+}
+#no{
+	float: right;
+}
+li{
+	float: left;
+}
+#option1{
+	color: black;
+}
+
+#head{
+	font-size: 40px;
+	font-weight: bold;
+	font-style: italic;
+}
+#tabs-ul{
+	font-size: 0.8em;
+}
