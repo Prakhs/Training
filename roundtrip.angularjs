@@ -1,0 +1,55 @@
+<html>
+
+<head>
+
+	<title>angular 3</title>
+
+	<script src="angular.min.js"></script>
+
+	<script>
+
+	var tripApp = angular.module("TripApp",[]);
+
+	tripApp.controller("Trip",function($scope){
+
+	
+
+		$scope.round = false;
+
+		$scope.change = function(){
+
+			console.log("Change");
+
+			console.log($scope.oneway);
+
+			if($scope.oneway == "true"){
+
+				$scope.round = true;
+
+			}else{
+
+				$scope.round = false;
+
+			}
+
+		}
+
+	});
+
+	</script>
+
+</head>
+
+<body ng-app="TripApp">
+
+	<section ng-controller="Trip">
+
+		<input type="radio" ng-model="oneway" name="trip" value="true" ng-change="change()" ng-model="round"> One way <input type="radio" name="trip" ng-model="oneway" value="false" ng-change="change()"> Round Trip<br/>
+
+		<input type="date"> <input type="date" ng-disabled="round">
+
+	</section>
+
+</body>
+
+</html>
