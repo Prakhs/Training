@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html ng-app="ListApp">
+<head>
+	<title>Table Add</title>
+	<script src="angular.min.js"></script>
+	<script src="angular-sanitize.min.js"></script>
+	<script>
+		angular.module("ListApp",["ngSanitize"]).
+		controller("ListController",function($scope){
+			
+			$scope.arr = [];
+			
+			$scope.add = function(){
+				var obj = {name:$scope.name,age:$scope.age,check:false}
+				$scope.arr.push(obj);
+				showTable();
+			}
+			function showTable(){
+				if($scope.arr.length == 0){
+				$scope.flag = false;
+				}else{
+				$scope.flag=true;
+				}
+			}
+			
+			$scope.remove = function(){
+				console.log("Remove")
+
+				for(var i=0;i<=$scope.arr.length;i++){
+					if($scope.arr[i].check == true){
+						console.log(i+" "+$scope.arr[i].check);
+						$scope.arr.splice(i,1);
+						i=0;
+					}
+
+				}
+
+				
+				showTable();
+			}
+		});
+
+	</script>
+</head>
+<body ng-controller="ListController">
+
+	<input type="text" ng-model="name" placeholder="Name"><br/>
+	<input type="text" ng-model="age" placeholder="Age"><br/>
+	<input type="button" ng-click="add()" value="Add">
+	<input type="button" ng-click="remove()" value="Remove"><br/>
+	<section>
+		<table border="1" ng-show="flag">
+			<thead>
+				<tr><th>Name</th><th>Age</th><th>Checkbox</th></tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="obj in arr">
+					<td>{{obj.name}}</td><td>{{obj.age}}</td><td><input type="checkbox" ng-model="obj.check"></td>
+				</tr>
+			</tbody>
+		</table>
+
+	</section>
+</body>
+</html>
