@@ -1,0 +1,102 @@
+<html ng-app="Day13">
+	<head>
+		<script src="angular.min.js"></script>
+		<script>
+			var acct= angular.module("Day13",[]);
+			acct.controller("FoodController",function($scope){
+				$scope.sec2={"display":"none"};
+				$scope.enteremail="",
+				$scope.enterpass="";
+				$scope.message="";
+				$scope.Click=function(){
+				if($scope.enteremail=="sam@yahoo.com" && $scope.enterpass=="orderfood"){				
+					$scope.sec1={"display":"none"};
+					$scope.sec2={"display":"block"};
+				}
+				else
+					$scope.message="Wrong Credentials";					
+				}
+			});
+		</script>
+
+		<style>
+			.food{
+				width:40%;
+				height: 40%;
+				border-style: inset;
+				border-radius: 1%
+			}
+			
+
+		
+
+.myButton {
+	-moz-box-shadow:inset 0px -3px 7px 0px #29bbff;
+	-webkit-box-shadow:inset 0px -3px 7px 0px #29bbff;
+	box-shadow:inset 0px -3px 7px 0px #29bbff;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2dabf9), color-stop(1, #0688fa));
+	background:-moz-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:-webkit-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:-o-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:-ms-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2dabf9', endColorstr='#0688fa',GradientType=0);
+	background-color:#2dabf9;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	border:1px solid #0b0e07;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:arial;
+	font-size:15px;
+	padding:6px 70px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #263666;
+}
+.myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0688fa), color-stop(1, #2dabf9));
+	background:-moz-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+	background:-webkit-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+	background:-o-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+	background:-ms-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+	background:linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#0688fa', endColorstr='#2dabf9',GradientType=0);
+	background-color:#0688fa;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+
+		</style>
+	</head>
+	<body ng-controller="FoodController">
+		<center>
+		<section  class="food" ng-style="sec1">
+			<section >
+			<h1>Returning Customer</h1>
+			<input type="email" required placeholder="Email:" ng-model="enteremail"><br/>
+			<input type="password" required placeholder="Password:" ng-model="enterpass"><br/>
+			<input type="button" ng-click="Click()" value="Login" class="myButton"><br/>
+			<h3 ng-model="message">{{message}}</h3>
+			<p>Forgot your password?<a href="#">Click here</a></p>
+			</section>
+
+		</section>
+		
+		<section ng-style="sec2" class="images">
+				<h2>Welcome to tasty khana</h2>
+				
+				<img src="1.jpg" width="5%" height="10%">
+				<img src="2.jpg" width="5%" height="10%">
+				<img src="3.jpg" width="5%" height="10%">
+				<img src="4.jpg" width="5%" height="10%">
+				<img src="5.jpg" width="5%" height="10%">
+		</section>
+			
+		</center>
+	</body>
+</html>
