@@ -1,0 +1,51 @@
+<html  ng-app="SweatModule">
+	<head>
+		<script src="angular.min.js"></script>
+		<script src="angular-sanitize.min.js"></script>
+		<script>
+			angular.module("SweatModule",["ngSanitize"]).
+				controller("ThaliController",function($scope){
+					$scope.nameitems = [];
+					
+					
+					$scope.placeOrder = function(){
+						$scope.nameitems.push({name:$scope.name,age:$scope.age});
+						
+					}
+					
+			      	$scope.removeOrder=function(){
+			          for(var i=0;i<=$scope.nameitems.length;i++){
+			          	if($scope.nameitems[i].check==true){
+			          		$scope.nameitems.splice(i,1);
+			          		i=0;
+			          	}
+			         }
+			    	}					
+				});
+		</script>
+	</head>
+	<body ng-controller="ThaliController">
+		<input type="text" ng-model="name" placeholder="Name">
+		<br/>
+		<input type="text" ng-model="age" placeholder="Age">
+		<br/>
+		<input type="button" value="Add" ng-click="placeOrder()">
+		<br/>
+		<table ng-table="tableParams"  class="table" border='1'>
+			<tr><th>Name</th><th>Age</th><th>Remove</th></tr>
+        	<tr ng-repeat="user in nameitems">
+            	<td data-title="'Name of people'">
+                {{user.name}}
+            	</td>
+            	<td data-title="'Age'">
+                {{user.age}}
+            	</td>
+            	<td data-title="'Remove'"><input type="checkbox" ng-model="user.check" >
+            	</td>
+        	</tr>
+    	</table>	
+    	<input type="button" value="Remove" ng-click="removeOrder()" >
+		<br/>
+		
+	</body>	
+</html>	
