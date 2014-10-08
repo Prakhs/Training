@@ -1,0 +1,50 @@
+<html ng-app="Movies">
+<head>
+	<title></title>
+	<script src="angular.min.js"></script>
+	<script>
+		var movies = [];
+		movies["departed"] = "departed.json";
+		movies["forrestgump"] = "forrestgump.json";
+		movies["jaws"] = "jaws.json";
+		movies["jurassicpark"] = "jurassicpark.json";
+		movies["oceanseleven"] = "oceanseleven.json";
+		movies["titanic"] = "titanic.json";
+
+		angular.module("Movies",[]).controller("searchController",function($scope,$http){
+			$scope.movie = "";
+			$scope.result = [];
+			$scope.message = "";
+			$scope.search = function(){console.log("in search");
+				if(null != movies[$scope.movie]){
+					var myurl = movies[$scope.movie];
+					$http({
+						url : 'movies/' + myurl,
+					}).success(function(response){
+						for(var i=0;i<response.movies.length;i++)
+							$scope.result.push(response.movies[i]);
+							
+					});
+					$scope.message = $scope.total.movies;
+				}else{
+					console.log("no data");
+				}
+			}
+		});
+	</script>
+</head>
+<body ng-controller="searchController">
+	<section id="top">
+		Movies Database
+		<input type="text" ng-model="movie"><br>
+		<input type="button" value="Search" ng-click="search()">
+		<h2 id="message">{{message}}</h2>	
+		<table ng-model="mytable">
+			<tr ng-repeat="key in result">
+				<td><img ng-src="{{key.posters.thumbnail}}"></td>
+				<td><h3>{{key.title}}</h3></td>
+			</tr>
+		</table>
+	</section>
+</body>
+</html>
