@@ -1,0 +1,123 @@
+<html ng-app="Movies">
+<head>
+	<title></title>
+	<script src="angular.min.js"></script>
+	<style>
+		li{display:inline;margin:2px}
+	</style>
+	<script>
+		var movies = [];
+		movies["departed"] = "departed.json";
+		movies["forrestgump"] = "forrestgump.json";
+		movies["jaws"] = "jaws.json";
+		movies["jurassicpark"] = "jurassicpark.json";
+		movies["oceanseleven"] = "oceanseleven.json";
+		movies["titanic"] = "titanic.json";
+		var recentSearch = [];
+
+		angular.module("Movies",[]).controller("searchController",function($scope,$http){
+			$scope.movie = "";
+			$scope.mytable = "";
+			
+			$scope.search = function(){console.log("in search");
+				$scope.result = [];
+				if(null != movies[$scope.movie]){
+					var myurl = movies[$scope.movie];
+					$http({
+						url : 'movies/' + myurl,
+					}).success(function(response){
+						for(var i=0;i<response.movies.length;i++)
+							$scope.result.push(response.movies[i]);
+						console.log($scope.result);
+						var data = {
+							searchText : $scope.movie,
+							result : $scope.result
+						};
+						window.history.pushState(data);
+						recentSearch.push(data);
+						console.log("recentSearch[]: ");
+						console.log(recentSearch);
+						var temp = JSON.stringify(recentSearch);
+						// console.log(temp);
+						localStorage.setItem("recentlyViewed",temp);
+					
+					});
+
+				}else{
+					console.log("no data");
+				}
+			}
+		});
+
+		window.onload = init;
+
+		function init(){
+			window.onpopstate = buttonClicked;
+
+			if(null != localStorage.getItem("recentlyViewed")){
+				// console.log("recent:");
+				var data = JSON.parse(localStorage.getItem("recentlyViewed"));
+				var str = "";
+				console.log(data[0]);
+				console.log(data[1]);
+				console.log(data[2]);
+				/*for(var i=0;i<data.length;i++){
+					console.log("i: " + i + ":"+ data[i].result[0].title);
+					for(var j=0; j<data[i].result.length;i++){
+						console.log("j: "+j + data[i].result);
+						console.log(data[j].result)
+						str += "<div style='display:inline;margin:2px'><img src='"+data[0].result[j].posters.thumbnail+"'></div>";
+					}
+				}*/
+
+				for(var j=0; j<data[0].result.length;j++){
+						console.log(data);
+						console.log(data[1])
+						str += "<div style='display:inline;margin:2px'><img src='"+data[0].result[j].posters.thumbnail+"'></div>";
+				}
+
+
+				document.getElementById("recentList").innerHTML = str;
+			}
+
+		}
+		
+		function buttonClicked(e){
+			var data = e.state;
+			document.getElementById("txtMovie").value = data.searchText;
+			var str = "";
+			for(var i=0;i<data.result.length;i++){
+				// console.log(data.result[i].posters.thumbnail);
+				// console.log(data.result[i].title);
+				var img = data.result[i].posters.thumbnail;
+				var title = data.result[i].title;
+				str += "<tr><td><img src='"+img+"'></td><td>"+title+"</td></tr>";
+			}
+			document.getElementById("movieTable").innerHTML = str;
+		}
+	</script>
+</head>
+<body ng-controller="searchController">
+	
+		<center>
+		<input type="text" id="txtMovie"  placeholder="Enter your search here..." ng-model="movie"><br>
+		<input type="button" value="Search" ng-click="search()"></center>
+		<hr>
+		<section id="top" style="overflow-y:scroll;height:500px">
+		<table ng-model="mytable" id="movieTable">
+			<tr ng-repeat="key in result">
+				<td><img ng-src="{{key.posters.thumbnail}}"></td>
+				<td><h3>{{key.title}}</h3></td>
+			</tr>
+			</div>
+		</table>
+	</section>
+	<hr>
+	<center><h4>You recently viewed:</h4></center>
+	<div id="recentList" style="overflow-x:scroll">
+		<!-- <ul id="" >
+
+		</ul> -->
+	</div>
+</body>
+</html>
